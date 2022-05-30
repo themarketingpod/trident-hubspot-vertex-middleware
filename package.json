@@ -1,0 +1,35 @@
+{
+  "name": "trident-hubspot-vertex-middleware",
+  "version": "1.0.0",
+  "description": "Middleware for the Hubspot Integration into Vertex",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --timeout 10000",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://radthemeswp%40gmail.com@github.com/themarketingpod/trident-hubspot-vertex-middleware.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/themarketingpod/trident-hubspot-vertex-middleware/issues"
+  },
+  "homepage": "https://github.com/themarketingpod/trident-hubspot-vertex-middleware#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-rate-limit": "^6.4.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
