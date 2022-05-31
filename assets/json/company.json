@@ -1,0 +1,81 @@
+{
+	"portalId": "25905417",
+	"objectType": "COMPANY",
+	"objectTypeId": "0-2",
+	"objectId": "5665070814",
+	"version": "8",
+	"properties": {
+		"vertex_id": {
+			"value": "1"
+		},
+		"about_us": {
+			"value": "Test about us 123"
+		},
+		"annualrevenue": {
+			"value": "10000000"
+		},
+		"company_number": {
+			"value": "1234567890"
+		},
+		"address": {
+			"value": "1-4 Umberslade Business Centre"	
+		},
+		"address2": {
+			"value": "Pound House Ln"	
+		},
+		"address3": {
+			"value": "Hockley Heath"	
+		},
+		"city": {
+			"value": "Solihull"
+		},
+		"state": {
+			"value": "West Midlands"
+		},
+		"country": {
+			"value": "United Kingdom"
+		},
+		"zip": {
+			"value": "B94 5DF"
+		},
+		"name": {
+			"value": "Test Company"
+		},
+		"hubspot_owner_id": {
+			"value": "351251958"
+		},
+		"hubspot_owner_telesales_id": {
+			"value": "351251958"
+		},
+		"hubspot_owner_fieldsales_id": {
+			"value": "351251958"
+		},
+		"hubspot_owner_accountadmin_id": {
+			"value": "351251958"
+		},
+		"hubspot_owner_engineer_id": {
+			"value": "351251958"
+		},
+		"hubspot_owner_susmanager_id": {
+			"value": "351251958"
+		},
+		"hubspot_owner_susengineer_id": {
+			"value": "351251958"
+		},
+		"hubspot_owner_analyst_id": {
+			"value": "351251958"
+		},
+		"hubspot_owner_dataadmin_id": {
+			"value": "351251958"
+		},
+		"hubspot_owner_relationship_id": {
+			"value": "351251958"
+		},
+		"country": {
+			"value": "United States"
+		},
+		"description": {
+			"value": "Test profile lorem ipsum"
+		}
+	}
+}

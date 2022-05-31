@@ -1,0 +1,67 @@
+{
+	"vid": "1",
+	"canonical-vid": "1",
+	"portal-id": "25905417",
+	"properties": {
+		"address": {
+			"value": "Street Address"
+		},
+		"city": {
+			"value": "Cambridge"
+		},
+		"company": {
+			"value": "HubSpot"
+		},
+		"country": {
+			"value": "United Kingdom"
+		},
+		"email": {
+			"value": "bh@hubspot.com"
+		},
+		"firstname": {
+			"value": "Brian"
+		},
+		"industry": {
+			"value": "Industry Name"
+		},
+		"jobtitle": {
+			"value": "CEO"
+		},
+		"lastname": {
+			"value": "Halligan"
+		},
+		"lifecyclestage": {
+			"value": "subscriber"
+		},
+		"mobilephone": {
+			"value": "+4401234567890"
+		},
+		"numemployees": {
+			"value": "5-25"
+		},
+		"phone": {
+			"value": "441234567890"
+		},
+		"salutation": {
+			"value": "hello"
+		},
+		"state": {
+			"value": "MA"
+		},
+		"twitterhandle": {
+			"value": "bhalligan"
+		},
+		"website": {
+			"value": "http://www.HubSpot.com"
+		},
+		"zip": {
+			"value": "GL20 7RW"
+		},
+		"hs_buying_role": {
+			"value": "BUDGET_HOLDER"
+		},
+		"linkedinbio": {
+			"value": ""
+		}
+	}
+}

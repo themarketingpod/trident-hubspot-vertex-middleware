@@ -1,5 +1,44 @@
 const axios = require('axios');
+const sendTestCompanyRequest = require("../api/companyTestApi")
 
+const updateCompanyTimeline = () => {
+	
+}
+
+/**
+ * formatRequestData
+ * Formats the request form HubSpot into the format needed
+ * for Vertex
+ *
+ * @param {Object} requestData - the request coming from Hubspot
+ * @return {Object} formattedData - an object formatted for use in Vertex
+ */
+const formatRequestData = (requestData) => {
+	let formattedData = {}
+	formattedData.VertexId = requestData.properties.vertex_id.value
+	formattedData.HubSpotId = requestData.objectId
+	formattedData.RedFlagId = requestData.properties.company_number.value
+	formattedData.Name = requestData.properties.name.value
+	formattedData.BusinessDescription =  requestData.properties.about_us.value
+	formattedData.Turnover = requestData.properties.annualrevenue.value
+	formattedData.AddressLine1 = requestData.properties.address.value
+	formattedData.AddressLine2 = requestData.properties.address2.value
+	formattedData.AddressLine3 = requestData.properties.address3.value
+	formattedData.Town = requestData.properties.city.value
+	formattedData.County = requestData.properties.state.value
+	formattedData.Country = requestData.properties.country.value
+	formattedData.Postcode = requestData.properties.zip.value
+	formattedData.AccountManager = requestData.properties.hubspot_owner_accountadmin_id.value
+	formattedData.TeleSales = requestData.properties.hubspot_owner_telesales_id.value
+	formattedData.FieldSales = requestData.properties.hubspot_owner_fieldsales_id.value
+	formattedData.AccountAdministrator = requestData.properties.hubspot_owner_accountadmin_id.value
+	formattedData.Engineer = requestData.properties.hubspot_owner_engineer_id.value
+	formattedData.Analyst = requestData.properties.hubspot_owner_analyst_id.value
+	formattedData.DataAdministrator = requestData.properties.hubspot_owner_dataadmin_id.value
+	formattedData.RelationshipManager = requestData.properties.hubspot_owner_relationship_id.value
+	
+	return formattedData
+}
 
 /**
  * updateCompany
@@ -10,30 +49,10 @@ const axios = require('axios');
  */
 exports.updateCompany = (req, res) => {
 	
-	/*
-		Stuff to update:
-		
-		[] about_us
-		[] annualrevenue
-		[] city
-		[] name
-		[] hubspot_owner_id
-		[] hubspot_owner_telesales_id
-		[] hubspot_owner_fieldsales_id
-		[] hubspot_owner_accountadmin_id
-		[] hubspot_owner_engineer_id
-		[] hubspot_owner_susmanager_id
-		[] hubspot_owner_susengineer_id
-		[] hubspot_owner_analyst_id
-		[] hubspot_owner_dataadmin_id
-		[] hubspot_owner_relationship_id
-		[] country
-		[] state
-		[] description
-		 
-	*/
+	let vertexRequestData = formatRequestData(req.body)
+	console.log(vertexRequestData)
 	
-	let message = req.body.properties
+	updateCompanyTimeline()
 	
-	res.send(message)
+	res.send(vertexRequestData)
 }
