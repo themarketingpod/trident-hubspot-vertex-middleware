@@ -1,4 +1,21 @@
 const axios = require('axios')
+const contactEndpoint = ''
+
+/**
+ * sendContactDataToVertex 
+ * Send the data to vertex so it can be updated
+ * @param {Object} companyData - An object containing the data to be sent
+ */
+ 
+const sendContactDataToVertex = (dealData) => {
+	axios.post(contactEndpoint, dealData)
+	.then((response) => {
+		console.log(response)
+	})
+	.catch((error) => {
+		console.error(error)
+	})
+}
 
 /**
  * formatRequestData

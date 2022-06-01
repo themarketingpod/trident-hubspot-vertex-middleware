@@ -1,10 +1,23 @@
 require('dotenv').config();
 
-const axios = require('axios');
+const axios = require('axios')
 const sendTestCompanyRequest = require("../api/companyTestApi")
+const companyEndpoint = ''
 
-const updateCompanyTimeline = () => {
-	
+/**
+ * sendCompanyDataToVertex 
+ * Send the data to vertex so it can be updated
+ * @param {Object} companyData - An object containing the data to be sent
+ */
+ 
+const sendCompanyDataToVertex = (companyData) => {
+	axios.post(companyEndpoint, companyData)
+	.then((response) => {
+		console.log(response)
+	})
+	.catch((error) => {
+		console.error(error)
+	})
 }
 
 /**
