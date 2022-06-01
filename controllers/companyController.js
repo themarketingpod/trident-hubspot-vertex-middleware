@@ -67,7 +67,5 @@ exports.updateCompany = (req, res) => {
 	let vertexRequestData = formatRequestData(req.body)
 	console.log(vertexRequestData)
 	
-	updateCompanyTimeline()
-	
 	res.send(vertexRequestData)
 }
