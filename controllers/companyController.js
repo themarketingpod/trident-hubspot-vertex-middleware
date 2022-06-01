@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 const axios = require('axios')
-const sendTestCompanyRequest = require("../api/companyTestApi")
 const companyEndpoint = ''
 
 /**
