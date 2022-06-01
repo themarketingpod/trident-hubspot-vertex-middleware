@@ -8,10 +8,13 @@ const opn = require('open');
 
 
 const accessTokenCache = new NodeCache({ deleteOnExpire: true })
+const refreshTokenStore = {}
 
 const PORT = process.env.PORT || 8080
 
 const exchangeForToken = require('../auth/exchangeForToken');
+
+
 
 // Hubspot Configuration
 // ------------------------------------- //
@@ -34,6 +37,30 @@ const authUrl =
 	`&redirect_uri=${encodeURIComponent(REDIRECT_URI)}`
 
 
+
+// OAuth flow
+// ------------------------------------- //
+const refreshAccessToken = async (userId) => {
+	const refreshTokenProof = {
+		grant_type: 'refresh_token',
+		client_id: CLIENT_ID,
+		client_secret: CLIENT_SECRET,
+		redirect_uri: REDIRECT_URI,
+		refresh_token: refreshTokenStore[userId]
+	};
+	return await exchangeForTokens(userId, refreshTokenProof);
+};
+
+const getAccessToken = async (userId) => {
+	// If the access token has expired, retrieve
+	// a new one using the refresh token
+	if (!accessTokenCache.get(userId)) {
+		console.log('Refreshing expired access token');
+		await refreshAccessToken(userId);
+	}
+	return accessTokenCache.get(userId);
+};
+
 // Routes
 // ------------------------------------- //
 router.get('/install', (req, res) => {
@@ -41,8 +68,6 @@ router.get('/install', (req, res) => {
 })
 
 router.get('/oauth-callback', async(req, res) => {
-	console.log('===> Step 3: Handling the request sent by the server');
-	
 	if (req.query.code) {		
 		const authCodeProof = {
 			grant_type: 'authorization_code',
@@ -52,12 +77,41 @@ router.get('/oauth-callback', async(req, res) => {
 			code: req.query.code
 		};
 		
-		const token = await exchangeForToken(req.sessionID, authCodeProof)
+		const tokens = await exchangeForToken(req.sessionID, authCodeProof)
 		
-		console.log('===> Step 4: Exchanging authorization code for an access token and refresh token');
+		console.log(tokens)
+		 
+		refreshTokenStore[req.sessionID] = tokens.refresh_token
+		accessTokenCache.set(req.sessionID, tokens.access_token, Math.round(tokens.expires_in * 0.75)); 
 		
+		if (tokens.message) {
+			return res.redirect(`/error?msg=${token.message}`);
+		}
+		 
+		console.log(refreshTokenStore)
 		
 	}
+})
+
+const isAuthorized = (userId) => {
+	console.log(userId)
+	console.log(refreshTokenStore)
+	return refreshTokenStore[userId] ? true : false;
+};
+
+
+router.get('/api-test', async (req, res) => {
+	
+	if (isAuthorized(req.sessionID)) {
+		console.log('here')
+		const accessToken = await getAccessToken(req.sessionID);
+		const contact = await getContact(accessToken);
+		res.write(`<h4>Access token: ${accessToken}</h4>`);
+		displayContactName(res, contact);
+	} else {
+		res.write(`<a href="/install"><h3>Install the app</h3></a>`);
+	}
+	res.end();
 })
 
 module.exports = router

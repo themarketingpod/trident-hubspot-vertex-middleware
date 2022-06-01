@@ -20,20 +20,21 @@
   },
   "homepage": "https://github.com/themarketingpod/trident-hubspot-vertex-middleware#readme",
   "dependencies": {
+    "@hubspot/api-client": "^6.0.1",
     "axios": "^0.27.2",
     "body-parser": "^1.20.0",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
     "cors": "^2.8.5",
+    "dotenv": "^6.0.0",
     "express": "^4.18.1",
     "express-rate-limit": "^6.4.0",
+    "express-session": "^1.15.6",
     "morgan": "^1.10.0",
-		"express-session": "^1.15.6",
-		"node-cache": "^4.2.0",
-		"open": "^6.4.0",
-		"request": "^2.88.0",
-		"request-promise-native": "^1.0.5",
-		"dotenv": "^6.0.0"
+    "node-cache": "^4.2.0",
+    "open": "^6.4.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
