@@ -7,7 +7,7 @@
 const axios = require('axios');
 
 // Set Vars
-const endpointBase = 'http://10.1.1.160/TridentServiceTest/api/hubspotapi/';
+const endpointBase = process.env.API_URL_BASE;
 
 /**
  * Sends the request to Vertex

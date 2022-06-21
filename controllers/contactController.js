@@ -1,35 +1,10 @@
-const axios = require('axios');
-const contactEndpoint = 'contact';
-
-const vertexRequest = require('../api/vertexRequest.js');
-
 /**
- * sendContactDataToVertex
- * Send the data to vertex so it can be updated
- * @param {Object} companyData - An object containing the data to be sent
+ * trident-hubspot-vertex-middleware - contactController.js
+ * @author Kris Bradbury
  */
 
-const sendContactDataToVertex = (contactData) => {
-  var axios = require('axios');
-  var data = JSON.stringify(contactData);
-
-  var config = {
-    method: 'post',
-    url: 'http://10.1.1.160/TridentServiceTest/api/hubspotapi/contact',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: data,
-  };
-
-  axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-};
+const contactEndpoint = 'contact';
+const vertexRequest = require('../api/vertexRequest.js');
 
 /**
  * formatRequestData
