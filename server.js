@@ -35,7 +35,6 @@ const Auth = require('./routes/auth');
 const Company = require('./routes/company');
 const Contact = require('./routes/contact');
 const Deal = require('./routes/deal');
-const Test = require('./routes/test');
 
 // Use the routes!
 // ------------------------------------- //
@@ -43,7 +42,6 @@ const Test = require('./routes/test');
 app.use('/auth', Auth);
 app.use('/api/v1/company', Company);
 app.use('/api/v1/contact', Contact);
-app.use('/api-test', Test);
 // app.use('/api/v1/deal', Deal)
 
 // Run the App!!
