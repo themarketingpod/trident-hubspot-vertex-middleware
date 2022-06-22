@@ -15,10 +15,11 @@ const vertexRequest = require('../api/vertexRequest.js');
  * @return {Object} formattedData - an object formatted for use in Vertex
  */
 const formatRequestData = (requestData) => {
+  console.log(requestData);
   let formattedData = {
     VertexId: requestData.properties.vertex_id.value,
     HubSpotId: requestData.properties.hs_object_id.value,
-    VertexCompanyId: 1,
+    VertexCompanyId: '1',
     FirstName: requestData.properties.firstname.value,
     LastName: requestData.properties.lastname.value,
     Salutation: requestData.properties.salutation.value,
@@ -38,12 +39,14 @@ const formatRequestData = (requestData) => {
     Postcode: requestData.properties.zip.value,
   };
 
+  console.log(formattedData);
+
   return formattedData;
 };
 
 exports.updateContact = async (req, res) => {
   let vertexRequestData = formatRequestData(req.body);
   let contactRequest = await vertexRequest(contactEndpoint, vertexRequestData);
-  console.log(contactRequest.status);
+
   res.sendStatus(contactRequest.status);
 };

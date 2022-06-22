@@ -1,7 +1,12 @@
-const express = require('express')
-const router = express.Router()
-const companyController = require('../controllers/companyController.js')
+/**
+ * trident-hubspot-vertex-middleware - company.js
+ * @author Kris Bradbury
+ */
 
-router.post('/updateCompany', companyController.updateCompany)
+const express = require('express');
+const router = express.Router();
+const companyController = require('../controllers/companyController.js');
 
-module.exports = router
+router.post('/updateCompany', companyController.updateCompany);
+
+module.exports = router;
